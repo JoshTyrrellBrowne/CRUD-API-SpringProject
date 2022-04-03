@@ -1,0 +1,23 @@
+
+The JSON layout for Route object:
+{
+    "routeId" : 16489,
+    "vehicleId" : 191873,
+    "startTime" : "2022-04-19T12:01:23",
+    "endTime" : "2022-04-19T23:59:12"
+}
+{
+    "routeId" : 12489,
+    "vehicleId" : 191873,
+    "startTime" : "2022-04-20 12:02:19",
+    "endTime" : "2022-04-20 23:56:41"
+}
+
+
+
+
+The JSON format for Driver object:
+{
+    "firstName" : "Josh",
+    "lastName" : "Browne"
+}
