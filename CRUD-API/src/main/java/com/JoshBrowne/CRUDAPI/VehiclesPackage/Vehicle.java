@@ -5,13 +5,13 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table
+@Entity(name = "Vehicle")
+@Table(name = "Vehicle")
 public class Vehicle {
     @Id
     @Column
     private Long vehicleId;
-    @Column
+    @Column(name = "driverId")
     private Long driverId;  // foreign key for Driver table
     
     

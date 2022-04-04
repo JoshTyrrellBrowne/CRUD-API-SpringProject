@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -25,9 +26,15 @@ public class VehicleController {
     public List<Vehicle> getAllVehicles() {
         return vehicleServiceImplementation.retrieveAllVehicles();
     }
+    @GetMapping("/vehicles/driverId")
+    public List<Vehicle> getVehiclesWithDriverId(@RequestParam("driverId") Long driverId) {
+        System.out.print(driverId);
+        return vehicleServiceImplementation.retrieveVehiclesWithDriverId(driverId);
+    }
 
     @GetMapping("vehicle/{id}")
     public Optional<Vehicle> getVehicleById(@PathVariable Long id) {
+        System.out.print(id);
         return vehicleServiceImplementation.retrieveVehicleByID(id);
     }
 

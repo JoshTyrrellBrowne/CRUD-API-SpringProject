@@ -12,4 +12,7 @@ public interface VehicleService {
     Optional<Vehicle> retrieveVehicleByID(Long id);
     Vehicle updateVehicle(Long id, Vehicle vehicle);
     HttpStatus deleteVehicle(Long id);
+
+    //Query functions:
+    List<Vehicle> retrieveVehiclesWithDriverId(Long driverId);
 }

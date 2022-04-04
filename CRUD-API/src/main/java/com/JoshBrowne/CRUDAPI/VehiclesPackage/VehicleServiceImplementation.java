@@ -1,5 +1,6 @@
 package com.JoshBrowne.CRUDAPI.VehiclesPackage;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -55,5 +56,24 @@ public class VehicleServiceImplementation implements VehicleService{
         }
         return null;
     }
+
+    @Override
+    public List<Vehicle> retrieveVehiclesWithDriverId(Long driverId) {
+        return vehicleRepository.retrieveDriverById(driverId);
+    }
+
+    // my code that didnt work...
+    //@Override
+    //public List<Vehicle> retrieveVehiclesWithDriverId(Long driverId) {
+    //    List<Vehicle> allVehicles = vehicleRepository.findAll();
+    //    List<Vehicle> vehiclesWithDriverId = new ArrayList<Vehicle>();
+    //    for (Vehicle vehicle : allVehicles) {
+    //        if (vehicle.getDriverId() == driverId) {
+    //            vehiclesWithDriverId.add(vehicle);
+    //        }
+    //    }
+    //    return vehiclesWithDriverId;
+    //}
+    
     
 }
