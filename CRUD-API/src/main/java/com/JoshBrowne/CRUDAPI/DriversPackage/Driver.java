@@ -2,8 +2,6 @@ package com.JoshBrowne.CRUDAPI.DriversPackage;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -11,9 +9,8 @@ import javax.persistence.Table;
 @Table
 public class Driver {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) 
     @Column
-    private Long id;
+    private Long driverId;
     @Column
     private String firstName;
     @Column
@@ -22,18 +19,19 @@ public class Driver {
     //Constructors:
     public Driver() {
     }
-    public Driver(Long id, String firstName, String lastName) {
-        this.id = id;
+    public Driver(Long driverId, String firstName, String lastName) {
+        this.driverId = driverId;
         this.firstName = firstName;
         this.lastName = lastName;
     }
-        
+
+
     //Getters & Setters:
-    public Long getId() {
-        return id;
+    public Long getDriverId() {
+        return driverId;
     }
-    public void setId(Long id) {
-        this.id = id;
+    public void setDriverId(Long driverId) {
+        this.driverId = driverId;
     }
     public String getFirstName() {
         return firstName;
@@ -47,11 +45,11 @@ public class Driver {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
+    //display all fields, used for testing & debugging
     @Override
     public String toString() {
-        return "Driver [firstName=" + firstName + ", id=" + id + ", lastName=" + lastName + "]";
+        return "Driver [driverId=" + driverId + ", firstName=" + firstName + ", lastName=" + lastName + "]";
     }
-
-    
     
 }

@@ -2,8 +2,6 @@ package com.JoshBrowne.CRUDAPI.VehiclesPackage;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -11,15 +9,42 @@ import javax.persistence.Table;
 @Table
 public class Vehicle {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) 
-    @Column
-    private Long id;
-
     @Column
     private Long vehicleId;
-
     @Column
-    private Long driverId;
-
+    private Long driverId;  // foreign key for Driver table
     
+    
+
+    //Constructors:
+    public Vehicle() {
+    }
+
+    public Vehicle(Long vehicleId, Long driverId) {
+        this.vehicleId = vehicleId;
+        this.driverId = driverId;
+    }
+    
+    //Setters & Getters:
+    public Long getVehicleId() {
+        return vehicleId;
+    }
+
+    public void setVehicleId(Long vehicleId) {
+        this.vehicleId = vehicleId;
+    }
+
+    public Long getDriverId() {
+        return driverId;
+    }
+
+    public void setDriverId(Long driverId) {
+        this.driverId = driverId;
+    }
+
+    @Override
+    public String toString() {
+        return "Vehicle [driverId=" + driverId + ", vehicleId=" + vehicleId + "]";
+    }
+
 }

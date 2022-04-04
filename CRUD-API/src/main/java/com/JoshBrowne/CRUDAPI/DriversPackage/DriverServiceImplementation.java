@@ -48,7 +48,7 @@ public class DriverServiceImplementation implements DriverService {
         Optional<Driver> flag = driverRepository.findById(id);
         if (flag.isPresent()) {
             Driver newFlag = flag.get();
-            newFlag.setId(driver.getId());
+            newFlag.setDriverId(driver.getDriverId());
             newFlag.setFirstName(driver.getFirstName());
             newFlag.setLastName(driver.getLastName());
 

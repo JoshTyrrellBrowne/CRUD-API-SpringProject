@@ -10,6 +10,6 @@ public interface VehicleService {
     Vehicle creatVehicle(Vehicle vehicle);
     List<Vehicle> retrieveAllVehicles();
     Optional<Vehicle> retrieveVehicleByID(Long id);
-    Vehicle updateRoute(Long id, Vehicle vehicle);
-    HttpStatus deleteRoute(Long id);
+    Vehicle updateVehicle(Long id, Vehicle vehicle);
+    HttpStatus deleteVehicle(Long id);
 }

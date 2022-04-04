@@ -22,7 +22,7 @@ public class Route {
     @Column
     private Long routeId;
     @Column
-    private Long vehicleId;
+    private Long vehicleId;  // foreign key for Vehicle table
     @Column
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd hh:mm:ss")  //to remove milliseconds
     private Timestamp startTime;
