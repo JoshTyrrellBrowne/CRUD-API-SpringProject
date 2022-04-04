@@ -1,11 +1,13 @@
 package com.JoshBrowne.CRUDAPI.VehiclesPackage;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
@@ -16,24 +18,20 @@ import com.JoshBrowne.CRUDAPI.DriversPackage.Driver;
 import com.JoshBrowne.CRUDAPI.RoutesPackage.Route;
 
 @Entity(name = "Vehicle")
-@Table(name = "Vehicles")
-public class Vehicle {
+@Table(name = "Vehicle")
+public class Vehicle implements Serializable {
     @Id
     @Column
     private Long vehicleId;
     @Column(name = "driverId")
     private Long driverId;  // foreign key for Driver table
-    
 
-    //@OneToOne(cascade = CascadeType.ALL)
-    //@JoinColumn(name = "driverId", referencedColumnName = "driverId", insertable = false, updatable=false)
-    //public Driver driver;
-
-    @OneToMany(mappedBy = "vehicleId", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "vehicleId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     public Set<Route> routes = new HashSet<>();
 
     //Constructors:
     public Vehicle() {
+        vehicleId = (long) 0; // must provide an initial id
     }
 
     public Vehicle(Long vehicleId, Long driverId) {

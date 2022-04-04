@@ -1,5 +1,6 @@
 package com.JoshBrowne.CRUDAPI.RoutesPackage;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.HashSet;
 import java.util.Set;
@@ -20,7 +21,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Table(name = "Routes")
-public class Route {
+public class Route implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) 
     @Column
@@ -36,9 +37,17 @@ public class Route {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd hh:mm:ss")
     private Timestamp endTime;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "vehicleId", insertable = false, updatable=false)
-    public Vehicle vehicle;
+    public Vehicle vehicle = new Vehicle();
+
+    public Vehicle getVehicle() {
+        return vehicle;
+    }
+
+    public void setVehicle(Vehicle vehicle) {
+        this.vehicle = vehicle;
+    }
 
     // Constructor:
     public Route(Long id, Long routeId, Long vehicleId, Timestamp startTime, Timestamp endTime) {
