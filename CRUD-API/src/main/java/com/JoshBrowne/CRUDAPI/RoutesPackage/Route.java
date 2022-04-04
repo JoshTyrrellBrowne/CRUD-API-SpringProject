@@ -1,19 +1,25 @@
 package com.JoshBrowne.CRUDAPI.RoutesPackage;
 
 import java.sql.Timestamp;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.JoshBrowne.CRUDAPI.VehiclesPackage.Vehicle;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 
 @Entity
-@Table
+@Table(name = "Routes")
 public class Route {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) 
@@ -29,6 +35,10 @@ public class Route {
     @Column
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd hh:mm:ss")
     private Timestamp endTime;
+
+    @ManyToOne
+    @JoinColumn(name = "vehicleId", insertable = false, updatable=false)
+    public Vehicle vehicle;
 
     // Constructor:
     public Route(Long id, Long routeId, Long vehicleId, Timestamp startTime, Timestamp endTime) {

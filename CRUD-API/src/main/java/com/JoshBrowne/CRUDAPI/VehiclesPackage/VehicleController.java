@@ -26,9 +26,10 @@ public class VehicleController {
     public List<Vehicle> getAllVehicles() {
         return vehicleServiceImplementation.retrieveAllVehicles();
     }
+
+    // Route with custom query:
     @GetMapping("/vehicles/driverId")
     public List<Vehicle> getVehiclesWithDriverId(@RequestParam("driverId") Long driverId) {
-        System.out.print(driverId);
         return vehicleServiceImplementation.retrieveVehiclesWithDriverId(driverId);
     }
 

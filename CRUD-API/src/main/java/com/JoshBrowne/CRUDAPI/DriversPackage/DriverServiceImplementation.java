@@ -56,5 +56,10 @@ public class DriverServiceImplementation implements DriverService {
         }
         return null;
     }
+
+    @Override
+    public List<Driver> getDriversByRouteID(Long routeId) {
+        return driverRepository.getDriversByRoute(routeId);
+    }
     
 }

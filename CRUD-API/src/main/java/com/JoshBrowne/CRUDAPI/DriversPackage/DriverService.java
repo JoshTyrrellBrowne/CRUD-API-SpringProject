@@ -13,4 +13,8 @@ public interface DriverService {
     Optional<Driver> retrieveDriverByID(Long id);
     Driver updateDriver(Long id, Driver route);
     HttpStatus deleteDriver(Long id);
+
+        
+    // Query functions: (part 2 of given task)
+    List<Driver> getDriversByRouteID(Long routeId);
 }

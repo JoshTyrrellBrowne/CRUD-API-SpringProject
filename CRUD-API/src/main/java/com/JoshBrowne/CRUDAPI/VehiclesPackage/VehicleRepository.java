@@ -8,7 +8,7 @@ import org.springframework.data.repository.query.Param;
 
 public interface VehicleRepository extends JpaRepository<Vehicle, Long> {
     
-    @Query(value = "FROM Vehicle WHERE driverId = ?1")
+    @Query(value = "FROM Vehicles WHERE driverId = ?1")
     public List<Vehicle> retrieveDriverById(Long driverId);
 
 }
